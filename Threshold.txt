@@ -18,7 +18,7 @@ while True:
         sensor_value = int(data['value']) 
         if sensor_value > maximum_limit or sensor_value < minimum_limit:
             print("Making request to Mailgun to send an email")
-            response = mailer.send_email("Alert", "The Current temperature sensor value is " +str(sensor_value))
+            response = mailer.send_email("Alert", "The Current sensor value is " +str(sensor_value))
             response_text = json.loads(response.text)
             print("Response received from Mailgun is: " + str(response_text['message']))
     except Exception as e: 
